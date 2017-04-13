@@ -1,0 +1,317 @@
+<html>
+<head>
+    <title>Weather Station Settings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Weather Station Settings</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="padding-top: 80px;">
+        <form class="form-horizontal" id="submitform" action="/config" method="post">
+ 
+            <!-- Network settings section -->
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Network</h2></div>
+                <div class="panel-body" >
+					<div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="ssid">SSID</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter WiFi SSID" id="ssid" name="ssid" maxlength="31" data-bind="value: ssid">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="password">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" placeholder="Enter WiFi password" id="password" name="password" maxlength="63" data-bind="value: password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="password">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter hostname" id="hostname" name="hostname" maxlength="63" data-bind="value: hostname">
+                                </div>
+                            </div>
+						</div>
+                </div> <!-- panel-body -->
+            </div> <!-- panel -->
+
+            <!-- Location/time section -->
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Location and time</h2></div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-3" for="tz">Timezone</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" placeholder="Select UTC Offset" id="utcOffset" name="utcOffset" data-bind="value: utcOffset">
+                                    <option value="" disabled selected>Select your UTC Offset</option>
+                                    <option value="-12">UTC -12</option>
+                                    <option value="-11">UTC -11</option>
+                                    <option value="-10">UTC -10 - Pepeete, Honolulu</option>
+                                    <option value="-9">UTC -09 - Anchorage</option>
+                                    <option value="-8">UTC -08 - Los Angeles, Vancouver, Tijuana</option>
+                                    <option value="-7">UTC -07 - Phoenix, Calgary, Ciudad Juarez</option>
+                                    <option value="-6">UTC -06 - Chicago, Guatemala City, Mexico City, San Salvador, Winnipeg</option>
+                                    <option value="-5">UTC -05 - New York, Lima, Toronto, Bogota, Havana, Kingston</option>
+                                    <option value="-4">UTC -04 - Santiago, La Paz, Manaus, Halifax</option>
+                                    <option value="-3">UTC -03 - Buenos Aires, Montevideo, Sao Paulo</option>
+                                    <option value="-2">UTC -02</option>
+                                    <option value="-1">UTC -01</option>
+                                    <option value="0">UTC 00 - Accra, Casablanca, Dakar, Dublin, Lisbon, London, Edinburgh</option>
+                                    <option value="1">UTC +01 - Berlin, Lagos, Madrid, Paris, Rome, Tunis, Vienna, Warsaw</option>
+                                    <option value="2">UTC +02 - Sofia, Athens, Cairo, Istanbul, Helsinki, Jerusalem, Johannesburg</option>
+                                    <option value="3">UTC +03 - Moscow, Nairobi, Baghdad, Doha, Khartoum, Minsk, Riyadh</option>
+                                    <option value="4">UTC +04 - Baku, Dubai, Samara, Muscat</option>
+                                    <option value="5">UTC +05 - Karachi, Tashkent, Yekaterinburg</option>
+                                    <option value="6">UTC +06 - Almaty, Dhaka, Omsk</option>
+                                    <option value="7">UTC +07 - Jakarta, Bangkok, Krasnoyarsk, Hanoi</option>
+                                    <option value="8">UTC +08 - Beijing, Taiper, Signapore, Kuala Lumputr, Bandar Seri Begawan</option>
+                                    <option value="9">UTC +09 - Seoul, Tokyo, Ambon, Takutsk</option>
+                                    <option value="10">UTC +10 - Brisbane, Sydney, Melbourne, Canaberra, Vladivostok, Port Moresby</option>
+                                    <option value="11">UTC +11 - Noumea</option>
+                                    <option value="12">UTC +12 - Auckland, Suva</option>
+                                </select>
+                            </div>
+                        </div>
+						<div class="form-group">
+							<label class="col-sm-3" for="tz">Country</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="Enter Country" id="country" name="country" maxlength="31" data-bind="value: country">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3" for="tz">City</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="Enter City" id="city" name="city" maxlength="31" data-bind="value: city">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3" for="tz">Weather Underground API key</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="Enter Weather Underground API key" id="apikey" name="apikey" maxlength="16" data-bind="value: apikey">
+							</div>
+						</div>
+					</div>
+				</div> <!-- panel-body -->
+            </div> <!-- panel -->
+
+
+
+            <!-- Alarm settings section -->
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Alarms</h2></div>
+                <div class="panel-body">
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="preset">Active alarms</label>
+                                <div class="col-sm-8">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="alarm1" id="alarm1">1</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="alarm2" id="alarm2">2</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="alarm3" id="alarm3">3</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- col -->
+                        <div class="col-md-6"></div>
+                    </div> <!-- row -->
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="ssid">Alarm 1</label>
+                                <div class="col-sm-3">
+                                    <input type="time" class="form-control" id="alarm1time" name="alarm1time">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="password">Alarm 2</label>
+                                <div class="col-sm-3">
+                                    <input type="time" class="form-control" id="alarm2time" name="alarm2time">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="hostname">Alarm 3</label>
+                                <div class="col-sm-3">
+                                    <input type="time" class="form-control" id="alarm3time" name="alarm3time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="preset">Repeat</label>
+                                <div class="col-sm-8">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Mon">Mon</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Tue">Tue</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Wed">Wed</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Thu">Thu</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Fri">Fri</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Sat">Sat</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day1" value="Sun">Sun</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="preset">Repeat</label>
+                                <div class="col-sm-8">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Mon" >Mon</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Tue">Tue</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Wed">Wed</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Thu">Thu</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Fri">Fri</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Sat">Sat</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day2" value="Sun">Sun</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="preset">Repeat</label>
+                                <div class="col-sm-8">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Mon">Mon</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Tue">Tue</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Wed">Wed</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Thu">Thu</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Fri">Fri</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Sat">Sat</button>
+                                        </label>
+                                        <label class="btn btn-primary" style="width: 3.5em;">
+                                            <input type="checkbox" name="day3" value="Sun">Sun</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div> <!-- panel-body -->
+
+
+
+            <div class="col-sm-1">
+                <button class="btn btn-default btn-large btn-primary" type="submit" data-bind="click: save">Save</button>
+            </div>
+
+        </form>
+        <form class="form-horizontal" action="/update" method="get">
+            <div class="col-sm-2">
+                <button class="btn btn-default btn-large btn-primary" type="submit" data-bind="click: update">Update firmware</button>
+            </div>
+        </form>
+        <form class="form-horizontal" action="/reset" method="get">
+            <div class="col-sm-1">
+                <button class="btn btn-default btn-large btn-primary" type="submit" data-bind="click: reset">Reset</button>
+            </div>
+        </form>
+    </div> <!-- container -->
+
+
+
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-bootstrap/0.2.1/knockout-bootstrap.min.js"></script>
+    <style type="text/css">
+        #rgb-preview, #w-preview {
+            opacity: 1;
+            text-shadow: none;
+            color: #888888;
+        }
+
+        input[type=range], input[type=range]:focus {
+            border: 0;
+            box-shadow: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    </style>
+   
+    <script>
+
+        basicsetup_html.getElementById('country').value = Settings.country;
+
+
+
+        //$('#submitform').submit(function () {
+        //    var commentary = $('#commentary').val();
+        //    if (commentary === undefined || commentary === "") {
+        //        $('#commentary').attr('apikey', 'empty_commentary');
+        //    } else {
+        //        $('#commentary').attr('apikey', 'commentary');
+        //    }
+        //});
+    </script>
+
+
+
+</body>
+</html>
